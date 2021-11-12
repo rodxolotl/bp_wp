@@ -56,7 +56,7 @@ define( 'DB_PASSWORD', getenv_docker('WORDPRESS_DB_PASSWORD', 'adminadmin') );
  */
 
 /** MySQL hostname */
-define( 'DB_HOST', getenv_docker('WORDPRESS_DB_HOST', 'db-wordpress.cjq8ldusaz1e.us-east-2.rds.amazonaws.com') );
+define( 'DB_HOST', getenv_docker('WORDPRESS_DB_HOST', 'database-wp-prod.cjq8ldusaz1e.us-east-2.rds.amazonaws.com') );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', getenv_docker('WORDPRESS_DB_CHARSET', 'utf8') );
