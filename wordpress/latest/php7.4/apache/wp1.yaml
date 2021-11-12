@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wp1
+  labels:
+    app: wp1
+spec:
+  ports:
+    - port: 80
+  selector:
+    app: wp1
+    tier: frontend
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wp-pv-claim
+  labels:
+    app: wp1
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: wp1
+  labels:
+    app: wp1
+spec:
+  selector:
+    matchLabels:
+      app: wp1
+      tier: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: wp1
+        tier: frontend
+    spec:
+      containers:
+      - image: rodxolotl/wp:1.0.0
+        name: wp1
+        ports:
+        - containerPort: 80
+          name: wp1

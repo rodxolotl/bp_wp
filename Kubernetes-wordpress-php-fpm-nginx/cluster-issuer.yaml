@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: wordpress-dev
+spec:
+  acme:
+    # server: https://acme-v02.api.letsencrypt.org/directory
+    server: https://ec2-13-229-87-130.ap-southeast-1.compute.amazonaws.com/
+    email: romaringka@gmail.com
+    privateKeySecretRef:
+      name: wordpress-dev
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
