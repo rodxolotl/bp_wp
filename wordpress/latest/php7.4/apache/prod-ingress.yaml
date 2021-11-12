@@ -7,7 +7,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-    - host: prod.blog1.rodxolotl.xyz
+    - host: wordprod.rodxolotl.xyz
       http:
         paths:
           - path: /
