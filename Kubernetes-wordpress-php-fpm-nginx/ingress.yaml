@@ -25,7 +25,7 @@ metadata:
   namespace: staging
 spec:
   rules:
-  - host: blog.rodxolotl.xyz
+  - host: wordstg.rodxolotl.xyz
     http:
       paths:
       - backend:
